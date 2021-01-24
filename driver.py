@@ -3,7 +3,6 @@ from improvedColoringAgent import ImprovedColoringAgent
 from improvedColoringAgent_KD import ImprovedColoringAgentKD
 from calcuateMSE import CalculateMSE
 import time
-# from test import Test
 
 from definitions import DEFINITIONS
 
@@ -22,28 +21,6 @@ def getRunTime():
     sec = totalTime
     print("TOTAL TIME FOR RECOLORING: ", end='')
     print("%d min and %d sec" % (min, sec))
-
-
-def plotPixels(): # DEPRACATED PLOT FUNCTION—DOES NOT PLOT PIXELS W/ CLARITY
-    centroids = agent.centroids
-    labels = agent.cluster_pixels(centroids)
-
-    print("Centroids: ", centroids)
-
-    fig = pyplot.figure()
-    axis = fig.add_subplot(1, 1, 1, projection='3d')
-
-    for centroid, clustered_values in labels.items():
-        C = numpy.array(clustered_values)
-        R = C[:, 0]
-        G = C[:, 1]
-        B = C[:, 2]
-        axis.scatter(R, G, B)
-
-    axis.set_xlabel("Red")
-    axis.set_ylabel("Green")
-    axis.set_zlabel("Blue")
-    pyplot.show()
 
 
 training_image_name = "3.jpg"
